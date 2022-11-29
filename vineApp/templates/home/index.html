@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div>
+    <table>
+        <caption id="grape">Виноград</caption>
+        <tr>
+            <th>Название сорта</th>
+            <th>Место произрастания</th>
+            <th>Время сбора</th>
+        </tr>
+        {% for grape in grapes %}
+        <tr>
+            <td>{{ grape.title }}</td>
+            <td>{{ grape.place }}</td>
+            <td>{{ grape.harvest_season }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<hr>
+
+<div>
+    <table>
+        <caption id="wine">Вино</caption>
+        <tr>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Сорт винограда</th>
+            <th>Цвет</th>
+            <th>Время выдержки в бочках (год)</th>
+            <th>Время выдержки в бутылках (месяц)</th>
+        </tr>
+        {% for wine in wines %}
+        <tr>
+            <td>{{ wine.title }}</td>
+            <td>{{ wine.types_of_wine }}</td>
+            <td>{{ wine.grape_varity }}</td>
+            <td>{{ wine.color }}</td>
+            <td>{{ wine.aging_barrel }}</td>
+            <td>{{ wine.aging_bottel }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<hr>
+
+<div>
+    <table>
+        <caption id="stored">Бочки</caption>
+        <tr>
+            <th>Комната-стеллаж</th>
+            <th>Сорт вина</th>
+            <th>Объём (литр)</th>
+            <th>Дата изготовления</th>
+            <th>Дата заполнения</th>
+        </tr>
+        {% for stored in storeds %}
+        <tr>
+            <td>{{ stored.location }}</td>
+            <td>{{ stored.wine_varity }}</td>
+            <td>{{ stored.volume }}</td>
+            <td>{{ stored.date_of_manufacture }}</td>
+            <td>{{ stored.date_of_competion }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
